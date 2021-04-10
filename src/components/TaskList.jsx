@@ -17,7 +17,7 @@ const TaskList = () => {
         }
         // New object with uniq ID
         const newTask = {
-            id:uniqid(), // Genero un ID unico
+            id:uniqid(),
             taskTitle:task
         }
         // Add every task to an a object
@@ -33,11 +33,11 @@ const TaskList = () => {
     }
 
     // Edit task
-    const[edit, setEdit] = useState(false); // (false) Porque cuando entramos a la pagina no estamos en modo edit
+    const[edit, setEdit] = useState(false); 
 
     const editT = (item) => {
-        setEdit(true); // Cambia a true cuando entra el nuevo componente
-        setTask(item.taskTitle); // Lo que queremos editar
+        setEdit(true);
+        setTask(item.taskTitle);
         setId(item.id);
     }
 
@@ -45,7 +45,7 @@ const TaskList = () => {
         e.preventDefault();
         const newArray = taskList.map(item => item.id === id ? {id:id, taskTitle:task}: item);
         setTaskList(newArray)
-        setEdit(false); //False porque cuando terminamos de editar, vuelve a registro
+        setEdit(false); //False 
         setTask('');
     }
 
@@ -60,7 +60,7 @@ const TaskList = () => {
                             className= "form-control mb-3" 
                             type= "text" 
                             placeholder= "New task"
-                            value= {task} // Esto es para que cuando ingreso un nombre y apreto registrar, se borra del input
+                            value= {task}
                         />
                         
                         <input 
@@ -85,7 +85,7 @@ const TaskList = () => {
                     <ul className= "list-group">
                         {
                             taskList.map(item => 
-                                <li key="{item.id}" className= "list-group-item">{item.taskTitle}
+                                <li key="{item.id}" className= "list-group-item bg-light">{item.taskTitle}
                                     <button
                                         onClick={() => {deleteTask(item.id)}} 
                                         className= 'btn btn-danger float-right'>
